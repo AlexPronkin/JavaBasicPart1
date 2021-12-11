@@ -9,9 +9,6 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class MathOperationsTests {
-    private static final int FIRST_NUM_TASK_1 = 74;
-    private static final int SECOND_NUM_TASK_1 = 36;
-    private static final int EXPECTED_NUM_TASK_1 = 110;
     private static final int FIRST_NUM_TASK_3 = 125;
     private static final int SECOND_NUM_TASK_3 = 24;
     private static final int[] INT_ARRAY = {5, 6, 7, 12, -5, 32, 43};
@@ -30,8 +27,8 @@ public class MathOperationsTests {
 
     @Test
     public void task1() {
-        int result = new MathOperations().getSumOfTwoNumbers(FIRST_NUM_TASK_1, SECOND_NUM_TASK_1);
-        Assertions.assertEquals(EXPECTED_NUM_TASK_1, result);
+        int result = new MathOperations().getSumOfTwoNumbers(74, 36);
+        Assertions.assertEquals(110, result);
         System.out.println(result);
     }
 
@@ -99,8 +96,8 @@ public class MathOperationsTests {
 
     @Test
     public void task5DuplicatesOfAnArray() {
-        int[] result = new MathOperations().getDuplicatesFromArrayOfIntegers(INT_ARRAY_WITH_DUPLICATES);
-        Assertions.assertArrayEquals(EXPECTED_DUPLICATES, result);
-        System.out.println(Arrays.toString(result));
+        int[] duplicatesArray = new MathOperations().getDuplicatesFromArrayOfIntegers(INT_ARRAY_WITH_DUPLICATES);
+        Assertions.assertArrayEquals(EXPECTED_DUPLICATES, duplicatesArray);
+        System.out.println(Arrays.toString(duplicatesArray));
     }
 }

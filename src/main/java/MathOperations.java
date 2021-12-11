@@ -3,7 +3,6 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class MathOperations {
 
@@ -46,19 +45,23 @@ public class MathOperations {
     }
 
     public int getSumValuesOfAnArrayWithStream(int[] intArray) {
-        IntStream intStream = Arrays.stream(intArray);
-        return intStream.sum();
+        return Arrays.stream(intArray).sum();
     }
 
     public int[] getDuplicatesFromArrayOfIntegers(int[] intArray) {
-        ArrayList<Integer> duplicatesArray = new ArrayList<>();
+        ArrayList<Integer> duplicatesArrayList = new ArrayList<>();
         for (int i = 0; i < intArray.length; i++) {
             for (int j = i + 1; j < intArray.length; j++) {
                 if (intArray[i] == (intArray[j])) {
-                    duplicatesArray.add(intArray[i]);
+                    duplicatesArrayList.add(intArray[i]);
                 }
             }
         }
-        return duplicatesArray.stream().mapToInt(i -> i).toArray();
+        int[] duplicatesArray = new int[duplicatesArrayList.size()];
+        for (int i = 0; i < duplicatesArrayList.size(); i++)
+        {
+            duplicatesArray[i] = duplicatesArrayList.get(i);
+        }
+        return duplicatesArray;
     }
 }
