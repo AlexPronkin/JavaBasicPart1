@@ -13,16 +13,9 @@ public class MathOperationsTests {
     private static final int SECOND_NUM_TASK_3 = 24;
     private static final int[] INT_ARRAY = {5, 6, 7, 12, -5, 32, 43};
     private static final int EXPECTED_SUM_OF_ARRAY = 100;
-    private static final int[] INT_ARRAY_WITH_DUPLICATES = {5, 6, 7, 12, -5, 32, 43, 6, 12};
-    private static final int[] EXPECTED_DUPLICATES = {6, 12};
 
     private static Stream<Arguments> provideOperationsForTask2() {
-        return Stream.of(
-                Arguments.of("-5 + 8 * 6", 43),
-                Arguments.of("(55+9) % 9", 1),
-                Arguments.of("20 + -3*5 / 8", 19),
-                Arguments.of("5 + 15 / 3 * 2 - 8 % 3", 13)
-        );
+        return Stream.of(Arguments.of("-5 + 8 * 6", 43), Arguments.of("(55+9) % 9", 1), Arguments.of("20 + -3*5 / 8", 19), Arguments.of("5 + 15 / 3 * 2 - 8 % 3", 13));
     }
 
     @Test
@@ -96,8 +89,8 @@ public class MathOperationsTests {
 
     @Test
     public void task5DuplicatesOfAnArray() {
-        int[] duplicatesArray = new MathOperations().getDuplicatesFromArrayOfIntegers(INT_ARRAY_WITH_DUPLICATES);
-        Assertions.assertArrayEquals(EXPECTED_DUPLICATES, duplicatesArray);
+        int[] duplicatesArray = new MathOperations().getDuplicatesFromArrayOfIntegers(new int[]{5, 6, 7, 12, -5, 32, 43, 6, 12});
+        Assertions.assertArrayEquals(new int[]{6, 12}, duplicatesArray);
         System.out.println(Arrays.toString(duplicatesArray));
     }
 }
